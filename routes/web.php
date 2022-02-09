@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/list', 'BookController@getBookList');
+
+Route::get('detail/{book}', 'BookController@getBookDetail');
+
+Route::get('add/{book}', function () {
+    return view('digest_add');
+});
