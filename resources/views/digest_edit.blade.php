@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>书目添加</title>
+    <title>编辑</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
@@ -15,33 +15,29 @@
 </head>
 <body>
 <div class="container">
-    <div class="text-center" style="margin:10px 0">
-        <h2>书目添加</h2>
+<div class="text-center" style="margin:10px 0">
+	<h2>读书笔记编辑</h2>
+</div>
+<form class="form-horizontal" role="form" action="/updateBookDigest/{{$book->id}}/{{$digest->id}}" method="post">
+    {{csrf_field()}}
+    <div class="form-group">
+		<div class="col-sm-12">
+		  <input class="form-control" id="disabledInput" type="text" value="{{$book->name}}" disabled>
+		</div>
     </div>
-    <form class="form-horizontal" role="form" action="" method="post">
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input class="form-control" name="contact" placeholder="书名"/>
-            </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <textarea id="content" class="form-control" rows="8" name="content" placeholder="内容">{{$digest->content}}</textarea>
         </div>
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input class="form-control" name="contact" placeholder="作者"/>
-            </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12 text-center">
+            <input type="button" class="btn btn-info" onclick="javascript:history.go(-1);" value="返回"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" class="btn btn-warning" value="重置" onclick="document.getElementById('content').value = ''"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="submit" class="btn btn-success" value="提交"/>
         </div>
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input class="form-control" name="contact" placeholder="排序"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-12 text-center">
-                <input type="button" class="btn btn-info" onclick="javascript:history.go(-1);" value="返回"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="button" class="btn btn-warning" value="重置"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="submit" class="btn btn-success" value="提交"/>
-            </div>
-        </div>
-    </form>
+    </div>
+</form>
 </div>
 <script src="https://fastly.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"
         integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"

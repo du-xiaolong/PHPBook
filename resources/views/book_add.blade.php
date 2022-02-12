@@ -4,45 +4,37 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>添加</title>
+    <title>书目添加</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 <div class="container">
     <div class="text-center" style="margin:10px 0">
-        <h2>读书笔记添加</h2>
+        <h2>书目添加</h2>
     </div>
-    <form class="form-horizontal" role="form" action="/store_digest" method="post">
-        {{ csrf_field()}}
+    <form class="form-horizontal" role="form" action="/storeBook" method="post">
+        {{csrf_field()}}
         <div class="form-group">
             <div class="col-sm-12">
-                <select class="form-control" name="select_book_id">
-                    <option>选择书目</option>
-                    @foreach($books as $book)
-                        @if($book->id == $selectBook->id)
-                            <option selected="selected" value="{{$book->id}}">{{$book->name}}</option>
-                        @else
-                            <option value="{{$book->id}}">{{$book->name}}</option>
-                        @endif
-                    @endforeach
-                </select>
+                <input class="form-control" name="name" placeholder="书名"/>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-12">
-                <textarea id="content_input" class="form-control" rows="8" name="content" placeholder="内容"></textarea>
+                <input class="form-control" name="author" placeholder="作者"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <input class="form-control" name="sort" placeholder="排序"/>
             </div>
         </div>
         <div class="form-group">
             <div class="col-sm-12 text-center">
                 <input type="button" class="btn btn-info" onclick="javascript:history.go(-1);" value="返回"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="button" class="btn btn-warning" value="重置" onclick="document.getElementById('content_input').value = ''"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="button" class="btn btn-warning" value="重置"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="submit" class="btn btn-success" value="提交"/>
             </div>
         </div>

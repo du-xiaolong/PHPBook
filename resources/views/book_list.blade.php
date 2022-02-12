@@ -8,10 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-    <!--[if lt IE 9]>
-    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 <div class="container" style="margin-top: 60px;">
@@ -19,12 +15,12 @@
     <div class="col-sm-12">
         <div class="list-group">
             @foreach($books as $book)
-                <a href="/detail/{{$book->id}}" class="list-group-item">{{$book->name}}</a>
+                <a href="/book_detail/{{$book->id}}" class="list-group-item">{{$book->name}}</a>
             @endforeach
         </div>
     </div>
     <div class="col-sm-12 text-right">
-        <a href="book_add.html" class="btn btn-success">添加</a>
+        <a href="/addBook" class="btn btn-success">添加</a>
     </div>
 </div>
 <script src="https://fastly.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"

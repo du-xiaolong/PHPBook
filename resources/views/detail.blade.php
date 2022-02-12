@@ -28,7 +28,7 @@
 <div class="container" style="margin:20px auto;">
     <div style="text-align: center">
         <p>
-        <h3>{{ $book->name }}</h3></p>
+        <h3>{{ $book->name }}</h3>
         <p>{{ $book->author }}</p>
         <p><i>阅读量：{{ $book->clicks }}&nbsp;&nbsp;&nbsp;&nbsp;创建时间：{{ $book->created_at }}</i></p>
     </div>
@@ -36,7 +36,7 @@
         <div class="well">
             <p>{{$loop->index + 1}}. &nbsp;{{$digest->content}}</p>
             <p style="text-align: right">{{$digest->created_at}} &nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="digest_edit.html"><span
+                <a href="/bookDetail/{{$book->id}}/digestEdit/{{$digest->id}}"><span
                             class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
                 <a href="javascript:void(0)" onclick="delClick({{$digest->id}})"><span
                             class="glyphicon glyphicon-trash"></span></a>
@@ -44,9 +44,9 @@
         </div>
     @endforeach
     <div class="col-sm-12 text-right">
-        <a href="list.blade.php" class="btn btn-success">返回</a>
+        <a href="javascript:history.go(-1)" class="btn btn-success">返回</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="/add/{{$book->id}}" class="btn btn-success">添加</a>
+        <a href="/add_digest/{{$book->id}}" class="btn btn-success">添加</a>
     </div>
 </div>
 <script src="https://fastly.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"
